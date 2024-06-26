@@ -41,7 +41,7 @@ public class FunctionExample {
                 /*
                 .map(n -> n*2)
                  */
-                .toList();
+                .collect(Collectors.toList());
 
         // imprimir a lista de números dobrados
         numerosDobrados.forEach(System.out::println); // method reference
