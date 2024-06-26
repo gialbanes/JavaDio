@@ -13,7 +13,7 @@ public class ConsumerExample {
         //criando uma lista de números inteiros 
         List<Integer> numeros = Arrays.asList(1,2,3,4,5,6,7,8);
 
-        //usando o consumer com expressão lambda para IMPRIMIR números pares
+        //usando o consumer com expressão lambda(define a lógica do consumer) para IMPRIMIR números pares
         Consumer<Integer> imprimirNUmeroPar = numero -> {
             if(numero%2 == 0){
                 System.out.print(numero + " ");
@@ -21,9 +21,10 @@ public class ConsumerExample {
         };
 
         //usando o consumer para imprimir números pares do Stream
-        // o foreach é o responsável por imprimir //quando eu passo o consumer p dentro do forEach, o numero que está como argumento no lambda é suibtituido por cada elemento de dentro do list daqui
-        // o forEach recebe o Consumer
-        numeros.forEach(n -> { // o método accept recebe o elemento do tipo T e não retorna um resultado
+        // o foreach é o responsável por imprimir 
+        //quando eu passo o consumer p dentro do forEach, o numero que está como argumento no lambda é suibtituido por cada elemento de dentro do list daqui
+        // o forEach recebe o Consumer; itera sobre cada elemento da lista e aplica o Consumer fornecido a cada elemento.
+        numeros.forEach(n -> { 
                 if(n % 2 == 0){
                     System.out.println(n);
                 }
