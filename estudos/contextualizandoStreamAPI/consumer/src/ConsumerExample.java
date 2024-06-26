@@ -16,7 +16,7 @@ public class ConsumerExample {
         List<Integer> numeros = Arrays.asList(1,2,3,4,5,6,7,8);
 
         //usando o consumer com expressão lambda(define a lógica do consumer) para IMPRIMIR números pares
-        Consumer<Integer> imprimirNUmeroPar = numero -> {
+        Consumer<Integer> imprimirNumeroPar = numero -> {
             if(numero%2 == 0){
                 System.out.print(numero + " ");
             }
