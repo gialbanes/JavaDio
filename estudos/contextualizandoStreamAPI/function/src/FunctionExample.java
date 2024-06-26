@@ -19,7 +19,21 @@ public class FunctionExample {
         //usando a funcao para dobrar todos os numeros no Stream e armazena-los em outra lista
         // a partir do stream chama o map, para mapear um valor p outro valor
         List<Integer> numerosDobrados = numeros.stream()
-            .map(dobrar)
-            .collect(Collectors.toList());
+            .map(dobrar) // chama a function
+            //caso eu não soubesse usar o function
+            /* .map(
+                new*
+                new Function<Integer, Integer>(){
+                    new*
+               @Override
+               public Integer apply(Integer n){
+               return n*2;
+               }
+             }
+        ) */
+            .toList();
+
+            //imprimir a lista de números dobrados 
+            numerosDobrados.forEach(System.out::println); //method reference 
     }
 }
