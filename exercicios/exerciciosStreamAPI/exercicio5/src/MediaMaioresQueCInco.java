@@ -10,7 +10,7 @@ public class MediaMaioresQueCInco {
         OptionalDouble media = numeros.stream()
         .filter(n -> n > 5)
         .mapToDouble(Integer::doubleValue) //converte para o tipo primitivo int, pois o método sum so aceita streams de tipo primitivo
-        .average();
+        .average(); // faz a média
 
         System.out.println("A média dos números maiores que 5 é: " + media);
 
