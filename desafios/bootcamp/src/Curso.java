@@ -1,25 +1,12 @@
-public class Curso {
-    private String titulo;
-    private String descricao;
+public class Curso extends Conteudo{
     private int cargaHoraria;
 
+    @Override
+    public double calcularXP() {
+        return xp_padrao * cargaHoraria; //ao concluir o curso pega o xp padrao e multiplica pela carga horaria
+    }
+    
     public Curso() {
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public int getCargaHoraria() {
@@ -31,8 +18,6 @@ public class Curso {
     }
     @Override
     public String toString() {
-        return "Curso [titulo=" + titulo + ", descricao=" + descricao + ", cargaHoraria=" + cargaHoraria + "]";
+        return "Curso [titulo=" + getTitulo() + ", descricao=" + getDescricao() + ", cargaHoraria=" + cargaHoraria + "]";
     }
-    
-    
 }

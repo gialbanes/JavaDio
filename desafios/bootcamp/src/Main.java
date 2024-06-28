@@ -18,6 +18,8 @@ public class Main {
         mentoria.setDescricao("Descrição mentoria Java");
         mentoria.setData(LocalDate.now());
 
+        /* Conteudo conteudo = new Mentoria(); polimorfismo, instanciei uma mentoria a partir da classe conteudo; nao posso instanciar um conteudo pq é uma classe abstrata;*/
+
         System.out.println(curso1);
         System.out.println(curso2);
         System.out.println(mentoria);
