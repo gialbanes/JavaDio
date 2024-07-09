@@ -46,12 +46,13 @@ CREATE TABLE IF NOT EXISTS `reservas` (
   KEY `fk_reservas_destinos` (`id_destino`),
   CONSTRAINT `fk_reservas_destinos` FOREIGN KEY (`id_destino`) REFERENCES `destinos` (`id`),
   CONSTRAINT `fk_reservas_usuarios` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela viagem_dio.reservas: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela viagem_dio.reservas: ~3 rows (aproximadamente)
 INSERT INTO `reservas` (`id`, `id_usuario`, `id_destino`, `data`, `STATUS`) VALUES
 	(1, 1, 2, '2023-07-10', 'confirmada'),
-	(2, 2, 1, '2023-08-05', 'pendente');
+	(2, 2, 1, '2023-08-05', 'pendente'),
+	(3, 1, 3, NULL, NULL);
 
 -- Copiando estrutura para tabela viagem_dio.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
