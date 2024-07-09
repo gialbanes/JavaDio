@@ -58,15 +58,18 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `nome` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `data_nasc` date NOT NULL,
-  `endereco` varchar(150) DEFAULT NULL,
+  `rua` varchar(100) DEFAULT NULL,
+  `numero` varchar(10) DEFAULT NULL,
+  `cidade` varchar(50) DEFAULT NULL,
+  `estado` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Copiando dados para a tabela viagem_dio.usuarios: ~3 rows (aproximadamente)
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `data_nasc`, `endereco`) VALUES
-	(1, 'João Silva', 'joao@example.com', '1990-05-15', 'Nova Rua, 123'),
-	(2, 'Maria Santos', 'maria@example.com', '1985-08-22', 'Rua B, 456, Cidade Y, Estado Z'),
-	(3, 'Pedro Souza', 'pedro@example.com', '1998-02-10', 'Avenida C, 789, Cidade X, Estado Y');
+INSERT INTO `usuarios` (`id`, `nome`, `email`, `data_nasc`, `rua`, `numero`, `cidade`, `estado`) VALUES
+	(1, 'João Silva', 'joao@example.com', '1990-05-15', 'Nova Rua', ' 123', ' 123', ' 123'),
+	(2, 'Maria Santos', 'maria@example.com', '1985-08-22', 'Rua B', ' 456', ' Cidade Y', ' Estado Z'),
+	(3, 'Pedro Souza', 'pedro@example.com', '1998-02-10', 'Avenida C', ' 789', ' Cidade X', ' Estado Y');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
