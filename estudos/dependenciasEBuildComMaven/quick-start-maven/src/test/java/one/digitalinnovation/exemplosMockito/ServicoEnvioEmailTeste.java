@@ -19,7 +19,7 @@ public class ServicoEnvioEmailTeste {
     @InjectMocks
     private ServicoEnvioEmail servico;
 
-    @Captor
+    @Captor //p capturar argumentos 
     private ArgumentCaptor<Email> captor;
 
     @Test
