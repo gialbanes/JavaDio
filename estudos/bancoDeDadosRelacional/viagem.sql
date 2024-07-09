@@ -25,13 +25,14 @@ CREATE TABLE IF NOT EXISTS `destinos` (
   `nome` varchar(255) NOT NULL,
   `descricao` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela viagem_dio.destinos: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela viagem_dio.destinos: ~4 rows (aproximadamente)
 INSERT INTO `destinos` (`id`, `nome`, `descricao`) VALUES
 	(1, 'Praia das Tartarugas', 'Uma bela praia com areias brancas e mar cristalino'),
 	(2, 'Cachoeira do Vale Verde', 'Uma cachoeira exuberante cercada por natureza'),
-	(3, 'Cidade Histórica de Pedra Alta', 'Uma cidade rica em história e arquitetura');
+	(3, 'Cidade Histórica de Pedra Alta', 'Uma cidade rica em história e arquitetura'),
+	(4, 'Deestino sem reserva', 'Uma bela praia com areias brancas e mar cristalino');
 
 -- Copiando estrutura para tabela viagem_dio.reservas
 CREATE TABLE IF NOT EXISTS `reservas` (
@@ -63,13 +64,14 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `cidade` varchar(50) DEFAULT NULL,
   `estado` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela viagem_dio.usuarios: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela viagem_dio.usuarios: ~4 rows (aproximadamente)
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `data_nasc`, `rua`, `numero`, `cidade`, `estado`) VALUES
 	(1, 'João Silva', 'joao@example.com', '1990-05-15', 'Nova Rua', ' 123', ' 123', ' 123'),
 	(2, 'Maria Santos', 'maria@example.com', '1985-08-22', 'Rua B', ' 456', ' Cidade Y', ' Estado Z'),
-	(3, 'Pedro Souza', 'pedro@example.com', '1998-02-10', 'Avenida C', ' 789', ' Cidade X', ' Estado Y');
+	(3, 'Pedro Souza', 'pedro@example.com', '1998-02-10', 'Avenida C', ' 789', ' Cidade X', ' Estado Y'),
+	(4, 'Usuario sem reservas', 'semreservar@teste.com', '1990-10-10', 'Rua', '123', 'cidade', 'estado');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
