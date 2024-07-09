@@ -1,5 +1,7 @@
 package one.digitalinnovation.exemplosMockito;
 
+import static org.mockito.ArgumentMatchers.anyString;
+
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Assertions;
@@ -20,9 +22,15 @@ public class CadastrarPessoaTest {
     private CadastrarPessoa cadastrarPessoa;
 
     @Test
+    void lancarExceptionQuandoChamarApiDosCorreios(){
+        Mockito.when(apiDosCorreios.buscaDadosComBaseNoCep(anyString())).thenThrow(IllegalArgumentException.class);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> cadastrarPessoa.cadastrarPessoa("Giovana", "1234567", LocalDate.now(), "11990000"));
+    }
+    
+    @Test
     void validarDadosDeCadastro(){
         DadosLocalizacao dadosLocalizacao = new DadosLocalizacao("SP", "Cananeia", "Rua A", "Casa", "Rocio");
-        Mockito.when(apiDosCorreios.buscaDadosComBaseNoCep("11990000")).thenReturn(dadosLocalizacao);
+        Mockito.when(apiDosCorreios.buscaDadosComBaseNoCep(anyString())).thenReturn(dadosLocalizacao);
         Pessoa pessoa = cadastrarPessoa.cadastrarPessoa("Giovana", "1234567", LocalDate.now(), "11990000");
 
         Assertions.assertEquals("Giovana", pessoa.getNome());
