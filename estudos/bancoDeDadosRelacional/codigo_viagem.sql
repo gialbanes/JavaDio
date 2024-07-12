@@ -79,4 +79,63 @@ ALTER TABLE reservas MODIFY COLUMN id INT AUTO_INCREMENT, ADD PRIMARY KEY (id);
 ALTER TABLE reservas ADD CONSTRAINT fk_reservas_usuarios FOREIGN KEY (id_usuario) REFERENCES usuarios(id);
 ALTER TABLE reservas ADD CONSTRAINT fk_reservas_destinos FOREIGN KEY (id_destino) REFERENCES destinos(id);
 
+-- Normalização de endereços e migração de dados--
+ALTER TABLE usuarios ADD rua VARCHAR(100), ADD numero VARCHAR(10), ADD cidade VARCHAR(50), ADD estado VARCHAR(50);
 
+-- Copia os dados da tabela original para a nova tabela
+UPDATE usuarios
+SET rua = SUBSTRING_INDEX(SUBSTRING_INDEX(endereco, ',', 1), ',', -1), -- vai pegar as separações de vírgulas e o índice naquele array --
+    numero = SUBSTRING_INDEX(SUBSTRING_INDEX(endereco, ',', 2), ',', -1),
+    cidade = SUBSTRING_INDEX(SUBSTRING_INDEX(endereco, ',', 3), ',', -1),
+    estado = SUBSTRING_INDEX(endereco, ',', -1);
+    
+SELECT * FROM usuarios;
+
+ALTER TABLE usuarios DROP COLUMN endereco;
+
+-- Junções --
+SELECT * FROM usuarios us 
+INNER JOIN reservas rs ON us.id = rs.id_usuario
+INNER JOIN destinos ds ON rs.id_destino = ds.id; 
+
+-- agora esse usuário não tem retorno pq ele não está referenciado na tabela reservas --
+INSERT INTO usuarios (nome, email, data_nasc, rua, numero, cidade, estado) VALUES 
+('Usuario sem reservas', 'semreservar@teste.com', '1990-10-10', 'Rua','123','cidade','estado');
+
+-- left join --
+SELECT * FROM usuarios us 
+left JOIN reservas rs ON us.id = rs.id_usuario;
+
+-- Right join --
+INSERT INTO destinos ( nome, descricao) VALUES 
+('Deestino sem reserva', 'Uma bela praia com areias brancas e mar cristalino');
+
+SELECT * FROM reservas rs
+RIGHT JOIN destinos ds
+ON rs.id_destino = ds.id;
+
+-- Sub-consultas -- 
+SELECT * FROM destinos 
+WHERE id NOT IN(SELECT id_destino FROM reservas); -- trouxe os destinos que não tem reservas --
+
+SELECT * FROM usuarios 
+WHERE id NOT IN(SELECT id_usuario FROM reservas); -- usuarios que não fizeram consultas --
+
+-- Agrupamento --
+SELECT COUNT(*) as total_usuarios FROM usuarios us
+INNER JOIN reservas rs ON us.id = rs.id_usuario;
+
+SELECT nome, (SELECT COUNT(*) FROM reservas WHERE id_usuario = usuarios.id) AS total_reservas FROM usuarios; -- reservas por usuário -- 
+
+SELECT MAX(TIMESTAMPDIFF(YEAR, data_nasc, CURRENT_DATE())) AS maiorIdade FROM usuarios; -- maior idade --
+
+INSERT INTO reservas (id_usuario, id_destino) VALUES 
+(1, 3);
+
+SELECT COUNT(*) id_destino FROM reservas
+GROUP BY  id_destino;
+
+-- Ordenação -- 
+SELECT COUNT(*) AS qtd_reservas, id_destino FROM reservas
+GROUP BY  id_destino
+ORDER BY qtd_reservas ASC, id_destino desc;
