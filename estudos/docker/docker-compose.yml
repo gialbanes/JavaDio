@@ -1,0 +1,19 @@
+version: '26.1.4' # Define a versão do Docker Compose
+
+services: # serviços que compõem a aplicação. O serviço é o db.
+  db: # nome do serviço, pode ser qualquer nome que você escolha
+    image: mongo # imagem Docker que será usada para o serviço
+    container_name: db # nome do container
+    restart: always # o docker reinicia o container automaticamente
+    environment: # usuário inicial 
+      - MONGO_INITDB_ROOT_USERNAME=dio # user
+      - MONGO_INITDB_ROOT_PASSWORD=dio # senha
+    ports:
+      - "27017:27017" # a porta 27017 do host é mapeada para a porta 27017 do container, permitindo acesso ao MongoDB a partir do host.
+    volumes: # mapeia um diretório do host para um diretório no container 
+      - C:\JavaDio\estudos\\docker:/data/db 
+
+# digitar no terminal ´docker-compose up -d´, este comando cria e inicia os containers definidos
+
+# digitar no terminal ´docker container ps´ para verificar se deu tudo certo 
+
