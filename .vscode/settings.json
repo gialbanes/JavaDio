@@ -1,4 +1,9 @@
 {
     "java.debug.settings.onBuildFailureProceed": true,
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.project.sourcePaths": [
+        "desafios/bootcamp/src",
+        "desafios/bancoDigital/src",
+        "estudos/spring/spring-ioc-di-beans-autowired/src/main/java/dio/springboot"
+    ]
 }
