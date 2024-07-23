@@ -6,5 +6,6 @@
         "desafios/bootcamp/src",
         "desafios/bancoDigital/src",
         "estudos/spring/spring-scopes-singleton-prototype/src/main/java/dio/springboot"
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }
