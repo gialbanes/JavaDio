@@ -5,7 +5,8 @@
         "estudos/spring/spring-ioc-di-beans-autowired/src/main/java/dio/springboot",
         "desafios/bootcamp/src",
         "desafios/bancoDigital/src",
-        "estudos/spring/spring-scopes-singleton-prototype/src/main/java/dio/springboot"
+        "estudos/spring/spring-scopes-singleton-prototype/src/main/java/dio/springboot",
+        "estudos/spring/my-first-api/src/main/java"
     ],
     "java.compile.nullAnalysis.mode": "automatic"
 }
