@@ -1,5 +1,6 @@
 package singleton;
 
+import facade.Facade;
 import strategy.Comportamento;
 import strategy.ComportamentoAgressivo;
 import strategy.ComportamentoDefensivo;
@@ -25,7 +26,6 @@ public class Teste {
         System.out.println(lazyHolder);
 
         //Strategy 
-
         Comportamento normal = new ComportamentoNormal();
         Comportamento defensivo = new ComportamentoDefensivo();
         Comportamento agressivo = new ComportamentoAgressivo();
@@ -42,5 +42,9 @@ public class Teste {
         robo.mover();
         robo.mover();
         robo.mover();
+
+        //Facede
+        Facade facade = new Facade();
+        facade.migrarCliente("Giovana", "11990000");
     }
 }
