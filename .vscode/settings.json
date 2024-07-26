@@ -8,7 +8,8 @@
         "estudos/spring/spring-scopes-singleton-prototype/src/main/java/dio/springboot",
         "estudos/spring/my-first-api/src/main/java",
         "estudos/spring/spring-security/src/main/java",
-        "desafios/design-patterns/src"
+        "desafios/design-patterns/src",
+        "desafios/design-patterns-spring/src"
     ],
     "java.compile.nullAnalysis.mode": "automatic"
 }
