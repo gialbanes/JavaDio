@@ -9,7 +9,8 @@
         "estudos/spring/my-first-api/src/main/java",
         "estudos/spring/spring-security/src/main/java",
         "desafios/design-patterns/src",
-        "desafios/design-patterns-spring/src"
+        "desafios/design-patterns-spring/src",
+        "desafios/my-second-api/src"
     ],
     "java.compile.nullAnalysis.mode": "automatic"
 }
